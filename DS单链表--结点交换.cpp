@@ -113,9 +113,15 @@ PNODE get(PNODE pHead,int pos){
 
 void swap(PNODE pHead,int pos1,int pos2){
 	int len=length_list(pHead);
-	if(pos1<1||pos1>len||pos2<1||pos2>len||pos1>=pos2){
+	if(pos1<1||pos1>len||pos2<1||pos2>len||pos1==pos2){
 		cout<<"error"<<endl;
 		return;
+	}
+	//确保pos1小于pos2
+	if(pos1>pos2){
+		int tmp=pos1;
+		pos1=pos2;
+		pos2=tmp;
 	}
 	PNODE pPre=get(pHead,pos1-1);
 	PNODE p=pPre->next;
@@ -124,10 +130,13 @@ void swap(PNODE pHead,int pos1,int pos2){
 	PNODE t=NULL;
 	t=q->next;
 	pPre->next=q;
+
+	//if pos1与pos2不相邻
 	if(pos2-pos1>1){
 		q->next=p->next;
 		qPre->next=p;
 	}
+	//if pos1与pos2相邻
 	else{
 		q->next=p;
 	}
@@ -136,7 +145,7 @@ void swap(PNODE pHead,int pos1,int pos2){
 	return;
 }
 
-int main(){
+void play(){
 	int i=2,pos1,pos2;
 	PNODE pHead=NULL;
 	pHead=create_list();
@@ -145,5 +154,8 @@ int main(){
 		cin>>pos1>>pos2;
 		swap(pHead,pos1,pos2);
 	}
+}
+int main(){
+	play();
 	return 0;
 }
