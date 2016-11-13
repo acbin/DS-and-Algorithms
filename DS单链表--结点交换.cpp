@@ -41,7 +41,7 @@ swap (ListNode * p, ListNode * q)  //p和q表示指向两个结点的指针
 error
 */
 #include <iostream>
-
+#include <cstdlib>
 using namespace std;
 
 typedef struct Node{
@@ -59,7 +59,7 @@ PNODE create_list(){
 	PNODE pCur=pHead;
 	cin>>n;
 	for(i=0;i<n;++i){
-		cin>>val;
+		cin>>val; 
 		PNODE pNew=(PNODE)malloc(sizeof(NODE));
 		if(pNew==NULL){
 			return NULL;
@@ -145,6 +145,5 @@ int main(){
 		cin>>pos1>>pos2;
 		swap(pHead,pos1,pos2);
 	}
-	system("pause");
 	return 0;
 }
