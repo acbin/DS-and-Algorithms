@@ -52,11 +52,10 @@ fedcba
 ccbbaa
 */
 #include <iostream>
-#include <malloc.h>
-#include <stdlib.h>
 #include <string>
-
 using namespace std;
+
+
 typedef struct Node{
 	char ch;
 	struct Node* next;
@@ -85,30 +84,85 @@ void push_stack(PSTACK pS,char ch){
 	pNew->ch=ch;
 	pNew->next=pS->pTop;
 	pS->pTop=pNew;
+}
+
+void pop_stack(PSTACK pS,char *ch){
+	if(pS->pBottom==pS->pTop){
+		return;
+	}
+	*ch=pS->pTop->ch;
+	PNODE pCur=pS->pTop->next;
+	free(pS->pTop);//因为push的时候分配了内存，所以pop的时候应该把内存释放掉
+	pS->pTop=pCur;
 	return;
 }
 
+//获取栈顶元素
+char get_stack(PSTACK pS){
+	char ch;
+	if(pS->pBottom==pS->pTop){
+		return NULL;
+	}
+	ch=pS->pTop->ch;
+	return ch;
+}
+
+//求栈的长度
+int length_stack(PSTACK pS){
+	int len=0;
+	if(pS->pBottom==pS->pTop){
+		return len;
+	}
+	PNODE pCur=pS->pTop;
+	while(pCur!=pS->pBottom){
+		++len;
+		pCur=pCur->next;
+	}
+	return len;
+}
 void traverse_stack(PSTACK pS){
+	if(pS->pBottom==pS->pTop){
+		return;
+	}
 	PNODE pCur=pS->pTop;
 	while(pCur!=pS->pBottom){
 		cout<<pCur->ch;
 		pCur=pCur->next;
 	}
 	cout<<endl;
+	return;
+}
+
+void clear_stack(PSTACK pS){
+	if(pS->pBottom==pS->pTop){
+		return;
+	}
+	PNODE pPre=pS->pTop;
+	PNODE pCur=pPre->next;
+	while(pPre!=pS->pBottom){
+		free(pPre);
+		pPre=pCur;
+		pCur=pCur->next;
+	}
+	pS->pTop=pS->pBottom;
 }
 int main(){
 	string str;
-	int i,t,len;
+	int i,t;
+	//char ch;
 	cin>>t;
+	STACK S;
+	init_stack(&S);
 	while(t--){
 		cin>>str;
-		len=str.length();
-		STACK S;
-		init_stack(&S);
-		for(i=0;i<len;++i){
+		for(i=0;i<str.length();++i){
 			push_stack(&S,str[i]);
 		}
 		traverse_stack(&S);
+		//int len=length_stack(&S);
+		//cout<<"len="<<len<<endl;
+		//pop_stack(&S,&ch);
+		clear_stack(&S);
 	}
 	return 0;
 }
