@@ -1,5 +1,5 @@
 
-#`Data Structure and Algorithms`  
+#`DS and Algorithms`  
 
 数据结构，决不能错过。  
 
