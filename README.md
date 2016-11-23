@@ -1,5 +1,5 @@
 <div align=center>
-![](yang.jpg)  
+![](yang.jpg)
 </div>
 Data Structure and Algorithms  
 
