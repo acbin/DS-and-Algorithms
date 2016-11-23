@@ -29,15 +29,21 @@
 2
 8
 error
-*/ 
+*/
 #include <iostream>  
 using namespace std;  
     
 int Search(int *ArraySize,int S,int n){  
-    int i;  
-    ArraySize[0]=S;  
-    for(i=n;!(ArraySize[i--]==S););  
-        return i+1;  
+    int low=1;  
+    int high=n;  
+    int mid;  
+    while(low<=high){  
+        mid=(low+high)/2;  
+        if(ArraySize[mid]==S)return mid;  
+        else if(ArraySize[mid]>S)high=mid-1;  
+        else low=mid+1;  
+    }  
+    return 0;  
 }  
     
     
@@ -61,3 +67,4 @@ int main(){
     }//while  
     return 0;  
 }//main  
+
