@@ -1,6 +1,6 @@
-<center>
+
 ![](yang.jpg)  
-</center>
+
 Data Structure and Algorithms  
 
 数据结构，决不能错过。  
