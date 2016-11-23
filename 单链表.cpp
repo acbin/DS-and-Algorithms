@@ -145,6 +145,5 @@ int main(){
 	delete_list(pNode);
 	search_list(pNode);
 	search_list(pNode);
-	system("pause");
 	return 0;
 }
