@@ -21,4 +21,4 @@ Data Structure and Algorithms
 ★ 顺序文件、索引文件  
 
 
-![](https://github.com/yanglbme/C/blob/master/lb.jpg)  
+![me](https://github.com/yanglbme/C/blob/master/lb.jpg)  
