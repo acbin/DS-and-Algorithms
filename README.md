@@ -1,5 +1,5 @@
 <center>
-![](yang.jpg)
+![](yang.jpg)  
 </center>
 Data Structure and Algorithms  
 
