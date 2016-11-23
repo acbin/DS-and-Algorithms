@@ -1,6 +1,4 @@
 
-![](yang.jpg)  
-
 Data Structure and Algorithms  
 
 数据结构，决不能错过。  
@@ -21,3 +19,6 @@ Data Structure and Algorithms
 ★ 查找算法：顺序查找、二分法、哈希  
 ★ 排序：插入排序、快速排序、选择排序、归并排序等  
 ★ 顺序文件、索引文件  
+
+
+![](lb.jpg)  
