@@ -95,7 +95,7 @@ void BiTree::PreOrder()
 
 void BiTree::PreOrder(BiTreeNode* t)
 {
-	if(!t==NULL){
+	if(t!=NULL){
 		cout<<t->data;
 		PreOrder(t->LeftChild);
 		PreOrder(t->RightChild);
@@ -111,7 +111,7 @@ int BiTree::Leaves()
 
 void BiTree::Leaves(BiTreeNode* t)
 {
-	if(!t==NULL){
+	if(t!=NULL){
 		if(t->LeftChild==NULL&&t->RightChild==NULL){
 			count++;	
 		}
@@ -127,7 +127,7 @@ void BiTree::InOrder()
 
 void BiTree::InOrder(BiTreeNode* t)
 {
-	if(!t==NULL){
+	if(t!=NULL){
 		InOrder(t->LeftChild);
 		cout<<t->data;
 		InOrder(t->RightChild);
@@ -141,7 +141,7 @@ void BiTree::PostOrder()
 
 void BiTree::PostOrder(BiTreeNode* t)
 {
-	if(!t==NULL){
+	if(t!=NULL){
 		PostOrder(t->LeftChild);
 		PostOrder(t->RightChild);
 		cout<<t->data;
