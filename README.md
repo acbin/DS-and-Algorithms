@@ -19,6 +19,3 @@ Data structure, must not be missed.
 ★ 查找算法：顺序查找、二分法、哈希  
 ★ 排序：插入排序、快速排序、选择排序、归并排序等  
 ★ 顺序文件、索引文件  
-
-
-![me](https://github.com/yanglbme/C/blob/master/lb.jpg)  
