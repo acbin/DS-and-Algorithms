@@ -293,8 +293,7 @@ int main()
 		getToken();
 
 		// 构建语法树syntaxTree，对输入的语言进行分析
-		TreeNode *syntaxTree;
-		syntaxTree = buildTree();
+		TreeNode *syntaxTree = buildTree();
 
 		// 格式化输出
 		printTree(syntaxTree);
