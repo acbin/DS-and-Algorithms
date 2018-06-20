@@ -13,7 +13,6 @@ enum TokenType
 	MUL,
 	DIV,
 	MOD,
-
 	ENDFILE,
 	ERROR,
 	NUM
