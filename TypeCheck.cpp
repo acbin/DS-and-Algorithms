@@ -224,7 +224,6 @@ void checkType(TreeNode *tree)
 {
 	isDigit = tree->nodeType == NUM ? true : isDigit;
 	isBool = tree->nodeType == BOOL ? true : isBool;
-
 	
 	if (tree->nodeType != NUM && tree->nodeType != BOOL)
 	{
@@ -275,11 +274,11 @@ int main()
 		(add 5 3)					int
 		(add 5 T)					error
 
-		(gt (add 5 3) (sub 5 3))	bool
-		(gt (add 5 3) (lt 5 3))		error
+		(gt (add 5 3) (sub 5 3))			bool
+		(gt (add 5 3) (lt 5 3))				error
 
 		(and T F)					bool
-		(or (add 5 3) T)			error
+		(or (add 5 3) T)				error
 
 		(not F)						bool
 		(not 5)						error
@@ -296,8 +295,7 @@ int main()
 		getToken();
 
 		// 构建语法树syntaxTree，对输入的语言进行分析
-		TreeNode *syntaxTree;
-		syntaxTree = buildTree();
+		TreeNode *syntaxTree = buildTree();
 		isDigit = false;
 		isBool = false;
 		isError = false;
