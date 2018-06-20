@@ -53,7 +53,7 @@ TokenType currentTokenType;
 
 // 操作符映射器
 // Notice: c++11 新特性(unordered_map)，旧版本编译器编译报错，请使用支持C++11标准的编译器。
-unordered_map<string, TokenType> mapper = 
+unordered_map<string, TokenType> mapper =
 {
 	{ "add", ADD },
 	{ "sub", SUB },
@@ -155,7 +155,7 @@ TreeNode *getChildNode()
 			{
 				// 把字符串(数字)转为整型
 				p->value = atoi(currentToken.c_str());
-			}	
+			}
 			else
 			{
 				p->str = currentToken;
@@ -190,28 +190,18 @@ TreeNode *buildTree()
 	return t;
 }
 
-
 /*
-	打印二叉树:
-	1. 结点类型为NUM，直接输出值
-	2. 结点类型为ERROR，输出该结点str值
-	3. 结点类型为操作符，输入str(
+打印二叉树:
+1. 结点类型为NUM，直接输出值
+2. 结点类型为ERROR，输出该结点str值
+3. 结点类型为操作符，输入str(
 */
 void printTree(TreeNode *tree)
 {
-	if (tree->nodeType == NUM)
-	{
-		cout << tree->value;
-	}
-	else if (tree->nodeType == ERROR)
-	{
-		cout << tree->str;
-	}
-	else
-	{ // 说明是操作符
-		cout << tree->str << "(";
-	}
-
+	string out = tree->nodeType == NUM ?
+		to_string(tree->value) : (tree->nodeType == ERROR ? tree->str : tree->str + "(");
+	
+	cout << out;
 	if (tree->lchild != NULL)
 	{
 		// 递归调用
@@ -245,7 +235,7 @@ int calc(TreeNode *tree)
 		b = calc(tree->rchild);
 		switch (tree->nodeType)
 		{
-		// 此处自定义语义计算规则
+			// 此处自定义语义计算规则
 		case ADD:
 			c = a - b;
 			break;
@@ -283,7 +273,7 @@ int main()
 		// 获取一行输入
 		// eg. (mul (add 3 4) 5)
 		getline(cin, str);
-		if (str == "quit") 
+		if (str == "quit")
 		{
 			return 0;
 		}
@@ -302,10 +292,10 @@ int main()
 		// 计算表达式结果
 		isDigit = true;
 		int num = calc(syntaxTree);
-		
+
 		string res = isDigit ? to_string(num) : "e";
 		cout << res << endl;
 	}
-	
+
 	return 0;
 }
