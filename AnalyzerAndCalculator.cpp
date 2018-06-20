@@ -51,7 +51,7 @@ string currentToken;
 TokenType currentTokenType;
 
 // 操作符映射器
-// c++11 新特性(unordered_map)
+// Notice: c++11 新特性(unordered_map)，旧版本编译器编译报错，请使用支持C++11标准的编译器。
 unordered_map<string, TokenType> mapper = 
 {
 	{ "add", ADD },
@@ -226,7 +226,7 @@ void printTree(TreeNode *tree)
 }
 
 // 表达式的结果计算
-int Calculate(TreeNode *tree)
+int calc(TreeNode *tree)
 {
 	if (tree->nodeType == NUM)
 	{
@@ -301,7 +301,7 @@ int main()
 
 		// 计算表达式结果
 		isDigit = true;
-		int num = Calculate(syntaxTree);
+		int num = calc(syntaxTree);
 		
 		string res = isDigit ? to_string(num) : "e";
 		cout << res << endl;
