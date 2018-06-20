@@ -13,6 +13,7 @@ enum TokenType
 	MUL,
 	DIV,
 	MOD,
+
 	ENDFILE,
 	ERROR,
 	NUM
@@ -240,8 +241,8 @@ int calc(TreeNode *tree)
 	else
 	{
 		int a, b, c;
-		a = Calculate(tree->lchild);
-		b = Calculate(tree->rchild);
+		a = calc(tree->lchild);
+		b = calc(tree->rchild);
 		switch (tree->nodeType)
 		{
 		// 此处自定义语义计算规则
